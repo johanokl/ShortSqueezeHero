@@ -1,0 +1,271 @@
+.visible {
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+.hidden {
+  display: none;
+}
+
+body {
+  background-color: #b0e0e6;
+  font-family: sans-serif;
+}
+
+#container {
+  margin-left: auto;
+  margin-right: auto;
+  border: 1em solid black;
+  top: 1em;
+  width: 25em;
+  height: 31em;
+  background: white;
+  overflow: hidden;
+  position: relative;
+}
+
+#footer {
+  margin-left: auto;
+  margin-right: auto;
+  position: relative;
+  top: 2em;
+  color: grey;
+  text-align: center;
+  font-size: 0.8em;
+}
+
+#footer a {
+  text-decoration: none;
+  color: grey;
+}
+
+#footer a:hover {
+  text-decoration: underline;
+}
+
+
+/* ----------------------------- */
+
+.frontpageText {
+  padding: 0.5em;
+  background: red;
+  color: white;
+  transition: left 2s;
+  border: 0.05em solid grey;
+  border-radius: 1em;
+  white-space: nowrap;
+}
+
+#maintitle {
+  left: 25em;
+  top: 4em;
+  font-size: 2em;
+  font-weight: bold;
+}
+#maintitle.intro {
+  left: 1em;
+}
+#maintitle.outro {
+  left: -12em;
+}
+
+#creator {
+  left: 100em;
+  top: 12em;
+  font-size: 1.5em;
+}
+#creator.intro {
+  left: 4em;
+}
+#creator.outro {
+  left: -12em;
+}
+
+#startgamebutton {
+  background: green;
+  left: 500em;
+  top: 16em;
+  font-size: 1.5em;
+  cursor: pointer;
+}
+#startgamebutton.intro {
+  left: 5em;
+}
+#startgamebutton.outro {
+  left: -12em;
+}
+
+#startgamebutton.outro,
+#creator.outro,
+#maintitle.outro {
+  transition: left 1s;
+}
+
+#introbackground {
+  width: 100%;
+  height: 100%;
+  background: white;
+  transition: background 1.5s;
+}
+#introbackground.intro {
+  background: black;
+}
+#introbackground.outro {
+  background: white;
+}
+
+/* ----------------------------- */
+
+
+#graph {
+  height: 30em;
+  width: 46em;
+  transition: left 5s linear;
+}
+#graph.movetorebound {
+  left: -27em;
+}
+
+#graphhider {
+  transition: left 4s linear;
+  left: 0em;
+  height: 100%;
+  width: 100%;
+  background: white;
+}
+#graphhider.intro {
+  left: 0em;
+}
+#graphhider.moveout {
+  left: 20em;
+}
+
+/* ----------------------------- */
+
+#alertsplash {
+  width: 100%;
+  height: 100%;
+  background: red;
+  opacity: 0;
+  display: block;
+  transition: opacity 0.2s;
+}
+#alertsplash.intro {
+  opacity: 1;
+}
+#alertsplash.outro {
+  opacity: 0;
+}
+#alertsplash.hidden {
+  display: none;
+  opacity: 0;
+}
+
+/* ----------------------------- */
+
+#infoscreen {
+  padding: 0.5em;
+  background: #111;
+  color: white;
+  border: 0.05em solid black;
+  border-radius: 1em;
+  left: 25em;
+  width: 20em;
+  height: 27em;
+  top: 1.5em;
+}
+#infoscreen.display {
+  transition: left 0.25s;
+  left: 2em;
+}
+#infoscreen.hide {
+  transition: left 0.3s;
+  left: -25em;
+}
+
+#infoscreenheader {
+  position: absolute;
+  width: 12em;
+  height: 1.5em;
+  top: 1em;
+  left: 1em;
+  overflow: hidden;
+  font-size: 1.5em;
+  line-height: 1.5em;
+  text-align: center;
+}
+
+#infoscreencontent {
+  position: absolute;
+  width: 17em;
+  height: 19em;
+  top: 4em;
+  left: 1.5em;
+  overflow: hidden;
+  line-height: 1.15em;
+  font-size: 1.05em;
+}
+
+#infoscreenbutton,
+#restartgamebutton {
+  position: relative;
+  text-align: center;
+  font-size: 1em;
+  color: white;
+  line-height: 1em;
+  width: 4em;
+  height: 1em;
+  top: 24em;
+  left: 7em;
+  border: 0.75em solid #008000;
+  border-radius: 1.5em;
+  background: #008000;
+  cursor: pointer;
+}
+
+#restartgamebutton {
+  width: 12em;
+  left: 6em;
+}
+
+#buybutton {
+  position: absolute;
+  text-align: center;
+  font-size: 2em;
+  color: white;
+  line-height: 1.5em;
+  width: 4em;
+  height: 2em;
+  top: 11em;
+  left: 3.5em;
+  border: 0.5em solid #F00;
+  border-radius: 2em;
+  background: black;
+  cursor: pointer;
+  line-height: 2em;
+}
+
+#stockprice {
+  font-size: 2em;
+  top: 2em;
+  left: 0.5em;
+  text-align: center;
+  width: 11.5em;
+}
+
+#gamestatus {
+  font-size: 2em;
+  left: 0.5em;
+  top: 5.5em;
+  text-align: center;
+  line-height: 1.3em;
+  width: 11.5em;
+}
