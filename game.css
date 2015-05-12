@@ -62,11 +62,18 @@ body {
   border: 0.05em solid grey;
   border-radius: 1em;
   white-space: nowrap;
+  visibility: hidden;
+}
+.frontpageText.intro {
+  visibility: visible;  
+}
+.frontpageText.outro {
+  visibility: visible;
 }
 
 #maintitle {
   left: 25em;
-  top: 4em;
+  top: 2em;
   font-size: 2em;
   font-weight: bold;
 }
@@ -77,9 +84,26 @@ body {
   left: -12em;
 }
 
+#highscore {
+  border: none;
+  background: none;
+  left: 100em;
+  top: 11em;
+  font-size: 1.5em;
+  line-height: 1.3em;
+  width: 15.5em;
+  text-align: center;
+}
+#highscore.intro {
+  left: 0em;
+}
+#highscore.outro {
+  left: -15em;
+}
+
 #creator {
   left: 100em;
-  top: 12em;
+  top: 7em;
   font-size: 1.5em;
 }
 #creator.intro {
@@ -128,9 +152,14 @@ body {
 #graph {
   height: 30em;
   width: 46em;
+  visibility: hidden;
   transition: left 5s linear;
 }
+#graph.intro {
+  visibility: visible;
+}
 #graph.movetorebound {
+  visibility: visible;
   left: -27em;
 }
 

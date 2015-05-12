@@ -79,7 +79,6 @@ function displayInfoscreen(header, content, callback) {
 }
 
 function alertSplash(flashes) {
-  console.log("alertSplash " + flashes);
   if (!alertsplash) {
     alertsplash = new GraphicsElement("alertsplash", "", true);
   }
