@@ -1,20 +1,3 @@
-.visible {
-  display: block;
-  position: absolute;
-  top: 0;
-  left: 0;
-  -webkit-touch-callout: none;
-  -webkit-user-select: none;
-  -khtml-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
-  user-select: none;
-}
-
-.hidden {
-  display: none;
-}
-
 body {
   background-color: #b0e0e6;
   font-family: sans-serif;
@@ -65,7 +48,7 @@ body {
   visibility: hidden;
 }
 .frontpageText.intro {
-  visibility: visible;  
+  visibility: visible;
 }
 .frontpageText.outro {
   visibility: visible;
@@ -152,6 +135,7 @@ body {
 #graph {
   height: 30em;
   width: 46em;
+  left: 0em;
   visibility: hidden;
   transition: left 5s linear;
 }
@@ -210,6 +194,7 @@ body {
   width: 20em;
   height: 27em;
   top: 1.5em;
+  position: absolute;
 }
 #infoscreen.display {
   transition: left 0.25s;
@@ -234,13 +219,13 @@ body {
 
 #infoscreencontent {
   position: absolute;
-  width: 17em;
-  height: 19em;
+  width: 18em;
+  height: 20em;
   top: 4em;
   left: 1.5em;
   overflow: hidden;
   line-height: 1.15em;
-  font-size: 1.05em;
+  font-size: 1em;
 }
 
 #infoscreenbutton,
@@ -263,6 +248,7 @@ body {
 #restartgamebutton {
   width: 12em;
   left: 6em;
+  top: 26em;
 }
 
 #buybutton {
@@ -291,10 +277,25 @@ body {
 }
 
 #gamestatus {
-  font-size: 2em;
-  left: 0.5em;
-  top: 5.5em;
+  font-size: 1.5em;
+  left: 1.5em;
+  top: 6.5em;
   text-align: center;
   line-height: 1.3em;
-  width: 11.5em;
+  width: 14.5em;
+}
+
+.visible {
+  display: block;
+  position: absolute;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+.hidden {
+  display: none;
 }

@@ -73,7 +73,7 @@ function displayInfoscreen(header, content, callback) {
     }, 1000);
   };
   infoscreenheader.innerHTML = header;
-  infoscreencontent.innerHTML = content.join("<br/><br/>");
+  infoscreencontent.innerHTML = content.join("<br><br>");
   infoscreen.setVisible(true);
   infoscreen.setState("display");
 }

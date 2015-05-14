@@ -7,7 +7,8 @@ Stupid joke made into a Javascript game.
 Read more about the term short squeeze at Investopedia, http://www.investopedia.com/terms/s/shortsqueeze.asp.
 
 ### Play it!
-A working version is available at https://htmlpreview.github.io/?https://raw.githubusercontent.com/johanokl/ShortSqueezeHero/master/index.htm
+A working version is available at https://htmlpreview.github.io/?https://raw.githubusercontent.com/johanokl/ShortSqueezeHero/master/index.htm.  
+Best played on a PC.
 
 ### Technical Details
 100% Javascript and HTML/CSS.  
