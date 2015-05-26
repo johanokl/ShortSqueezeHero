@@ -27,7 +27,7 @@ var intro = (function () {
       "Based on this you decide to make a daring bet and short the company's stock (NYSE:BMO). What could go wrong?"
       ],
       prequelScreenTwo
-    ); 
+    );
   }
 
   function prequelScreenTwo() {

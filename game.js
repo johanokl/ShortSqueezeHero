@@ -22,6 +22,10 @@ window.onload = function () {
     lowestPrice = 75,
     stocksToBuy = 50;
 
+  function readParameter(str) {
+    return (location.search.split(str + '=')[1]||'').split('&')[0];
+  }
+
   function getCurrentPrice() {
     var timeSpent = (new Date().getTime() - startTime) / 1000;
     return startPrice * Math.pow(increaseRate, timeSpent);
@@ -126,13 +130,23 @@ window.onload = function () {
         creator.setVisible(false);
         highscorelabel.setVisible(false);
         startgamebutton.setVisible(false);
-        intro.start(startGame, startPrice, soldPrice, lowestPrice, stocksToBuy);
+        if (readParameter("start") === "game") {
+          startGame();
+        } else {
+          intro.start(startGame, startPrice, soldPrice, lowestPrice, stocksToBuy);
+        }
       }, 1500);
     };
   }
 
   function startGame() {
     document.getElementById("gamescreen").style.display = "block";
+    savingsStart = readParameter("savingsStart") ? parseInt(readParameter("savingsStart"), 10) : savingsStart;
+    increaseRate = readParameter("increaseRate") ? (parseInt(readParameter("increaseRate"), 10) / 100) : increaseRate;
+    startPrice = readParameter("startPrice") ? parseInt(readParameter("startPrice"), 10) : startPrice;
+    soldPrice = readParameter("soldPrice") ? parseInt(readParameter("soldPrice"), 10) : soldPrice;
+    lowestPrice = readParameter("lowestPrice") ? parseInt(readParameter("lowestPrice"), 10) : lowestPrice;
+    stocksToBuy = readParameter("stocksToBuy") ? parseInt(readParameter("stocksToBuy"), 10) : stocksToBuy;
     stocksLeft = stocksToBuy;
     startTime = new Date().getTime();
     buybutton.setVisible(true);
@@ -146,9 +160,10 @@ window.onload = function () {
   }
 
   (function init() {
-    var cookieHighScore = document.cookie.replace(/(?:(?:^|.*;\s*)shortSqueezeHeroHighScore\s*\=\s*([^;]*).*$)|^.*$/, "$1");
-    if (cookieHighScore) {
-      highScore = cookieHighScore;
+    if (readParameter("highscore") === "clear") {
+      document.cookie = "shortSqueezeHeroHighScore=0";
+    } else {
+      highScore = document.cookie.replace(/(?:(?:^|.*;\s*)shortSqueezeHeroHighScore\s*\=\s*([^;]*).*$)|^.*$/, "$1") || highScore;
     }
     titleScreen();
   }());
