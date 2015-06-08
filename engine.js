@@ -20,9 +20,17 @@ GraphicsElement.prototype.setVisible = function (visible) {
   this.updateClassName();
 };
 
+GraphicsElement.prototype.isVisible = function () {
+  return this._visible;
+};
+
 GraphicsElement.prototype.setState = function (state) {
   this._state = state;
   this.updateClassName();
+};
+
+GraphicsElement.prototype.getState = function () {
+  return this._state;
 };
 
 GraphicsElement.prototype.updateClassName = function () {
@@ -56,7 +64,8 @@ function animateElement(graphicsElement, states) {
 var infoscreenheader,
   infoscreencontent,
   alertsplash,
-  infoscreen;
+  infoscreen,
+  infoscreenbuttonfunction;
 
 function displayInfoscreen(header, content, callback) {
   if (!infoscreen || !infoscreenheader || !infoscreencontent) {
@@ -64,14 +73,16 @@ function displayInfoscreen(header, content, callback) {
     infoscreencontent = document.getElementById("infoscreencontent");
     infoscreenheader = document.getElementById("infoscreenheader");
   }
-  document.getElementById("infoscreenbutton").className = (callback ? "visible" : "hidden");
-  document.getElementById("infoscreenbutton").onclick = function () {
+  infoscreenbuttonfunction = function () {
+    infoscreenbuttonfunction = false;
     infoscreen.setState("hide");
     setTimeout(callback, 200);
     setTimeout(function () {
       infoscreen.setState("");
     }, 1000);
   };
+  document.getElementById("infoscreenbutton").onclick = infoscreenbuttonfunction;
+  document.getElementById("infoscreenbutton").className = (callback ? "visible" : "hidden");
   infoscreenheader.innerHTML = header;
   infoscreencontent.innerHTML = content.join("<br><br>");
   infoscreen.setVisible(true);

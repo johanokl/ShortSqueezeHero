@@ -1,5 +1,5 @@
 /*jslint browser: true, devel: true, nomen: true, sloppy: true, vars: true, indent: 2 */
-/*global GraphicsElement, alertSplash, displayInfoscreen, intro */
+/*global GraphicsElement, alertSplash, displayInfoscreen, infoscreenbuttonfunction, intro */
 
 window.onload = function () {
 
@@ -10,6 +10,7 @@ window.onload = function () {
     buybutton = new GraphicsElement("buybutton"),
     gamestatus = new GraphicsElement("gamestatus"),
     stockprice = new GraphicsElement("stockprice"),
+    startgamebutton,
     restartgamebutton = new GraphicsElement("restartgamebutton"),
     stocksLeft = 0,
     totalPrice = 0,
@@ -19,6 +20,7 @@ window.onload = function () {
     increaseRate = 1.25,
     startPrice = 95,
     soldPrice = 325,
+    waitforkeyup = false,
     lowestPrice = 75,
     stocksToBuy = 50;
 
@@ -38,7 +40,6 @@ window.onload = function () {
   function updateGameStatus() {
     currentEarnings = Math.round((((soldPrice * (stocksToBuy - stocksLeft)) - totalPrice) + (soldPrice - getCurrentPrice()) * stocksLeft));
     savingsLeft = Math.round((currentEarnings > 0) ? savingsStart : (savingsStart + currentEarnings));
-    console.log(savingsLeft);
     if (savingsLeft < 0) {
       gameFinished();
     }
@@ -109,11 +110,34 @@ window.onload = function () {
     }
   }
 
+  document.onkeydown = function (event) {
+    if (waitforkeyup || !startgamebutton || !event || event.keyCode !== 32) {
+      return true;
+    }
+    waitforkeyup = true;
+    if (startgamebutton.getState() === "intro") {
+      document.getElementById("startgamebutton").onclick();
+    } else if (restartgamebutton.isVisible()) {
+      document.getElementById("restartgamebutton").onclick();
+    } else if (infoscreenbuttonfunction) {
+      infoscreenbuttonfunction();
+    } else if (buybutton.isVisible()) {
+      buyStock();
+    }
+  };
+
+  document.onkeyup = function (event) {
+    if (!event || event.keyCode !== 32) {
+      return true;
+    }
+    waitforkeyup = false;
+  };
+
   function titleScreen() {
+    startgamebutton = new GraphicsElement("startgamebutton", "frontpageText", true, "intro");
     var introbackground = new GraphicsElement("introbackground", undefined, true, "intro"),
       maintitle = new GraphicsElement("maintitle", "frontpageText", true, "intro"),
       creator = new GraphicsElement("creator", "frontpageText", true, "intro"),
-      startgamebutton = new GraphicsElement("startgamebutton", "frontpageText", true, "intro"),
       highscorelabel = new GraphicsElement("highscore", "frontpageText", true, "intro");
     if (highScore < Number.MAX_SAFE_INTEGER) {
       highscorelabel.setContent("High score:<br>" + Math.round(highScore));
