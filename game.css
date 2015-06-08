@@ -1,5 +1,6 @@
 body {
   background-color: #b0e0e6;
+  background: url("img/bills.jpg");
   font-family: sans-serif;
 }
 
@@ -24,18 +25,15 @@ body {
   text-align: center;
   font-size: 0.8em;
 }
-
 #footer a {
   text-decoration: none;
   color: grey;
+  padding: 4px;
 }
-
 #footer a:hover {
-  text-decoration: underline;
+  color: white;
+  background: black;
 }
-
-
-/* ----------------------------- */
 
 .frontpageText {
   padding: 0.5em;
@@ -129,9 +127,6 @@ body {
   background: white;
 }
 
-/* ----------------------------- */
-
-
 #graph {
   height: 30em;
   width: 46em;
@@ -161,8 +156,6 @@ body {
   left: 20em;
 }
 
-/* ----------------------------- */
-
 #alertsplash {
   width: 100%;
   height: 100%;
@@ -181,8 +174,6 @@ body {
   display: none;
   opacity: 0;
 }
-
-/* ----------------------------- */
 
 #infoscreen {
   padding: 0.5em;
