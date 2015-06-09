@@ -42,6 +42,7 @@ window.onload = function () {
     savingsLeft = Math.round((currentEarnings > 0) ? savingsStart : (savingsStart + currentEarnings));
     if (savingsLeft < 0) {
       gameFinished();
+      savingsLeft = 0;
     }
     gamestatus.setContent(
       "Current result from bet: " + ((currentEarnings < 0) ? "-$" : "$") + Math.abs(currentEarnings) + "<br>" +
@@ -95,7 +96,7 @@ window.onload = function () {
       document.getElementById("restartgamebutton").onclick = function () {
         location.reload();
       };
-    }, 2000);
+    }, 5000);
   }
 
   function buyStock() {

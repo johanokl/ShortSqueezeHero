@@ -73,15 +73,17 @@ function displayInfoscreen(header, content, callback) {
     infoscreencontent = document.getElementById("infoscreencontent");
     infoscreenheader = document.getElementById("infoscreenheader");
   }
-  infoscreenbuttonfunction = function () {
-    infoscreenbuttonfunction = false;
-    infoscreen.setState("hide");
-    setTimeout(callback, 200);
-    setTimeout(function () {
-      infoscreen.setState("");
-    }, 1000);
-  };
-  document.getElementById("infoscreenbutton").onclick = infoscreenbuttonfunction;
+  if (callback) {
+    infoscreenbuttonfunction = function () {
+      infoscreenbuttonfunction = false;
+      infoscreen.setState("hide");
+      setTimeout(callback, 200);
+      setTimeout(function () {
+        infoscreen.setState("");
+      }, 1000);
+    };
+    document.getElementById("infoscreenbutton").onclick = infoscreenbuttonfunction;
+  }
   document.getElementById("infoscreenbutton").className = (callback ? "visible" : "hidden");
   infoscreenheader.innerHTML = header;
   infoscreencontent.innerHTML = content.join("<br><br>");
