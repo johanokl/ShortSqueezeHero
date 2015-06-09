@@ -60,7 +60,7 @@ var intro = (function () {
       displayInfoscreen(
         "Congratulations!",
         [ "It looks like you made a wise decision.",
-        "Mount Everest seems drier than the Sahara desert, so dry its cows are giving powdered milk.",
+        "Mount Everest seems drier than the Sahara desert, so dry the cows are giving powdered milk.",
         "The stock has continued to plunge and is now down to $" + lowestPrice + ", meaning that the " + stocksToBuy + " stocks you shorted at $" + boughtPrice + " will net you a whopping $" + ((boughtPrice - lowestPrice) * stocksToBuy) + ".",
         "You've already started planning what things to buy for the money you'll make from this bet. Maybe a new watch?"
         ],

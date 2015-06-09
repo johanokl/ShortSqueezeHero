@@ -74,8 +74,8 @@ window.onload = function () {
     } else if (currentEarnings > 0) {
       displayInfoscreen(
         "Short Squeeze Hero!",
-        [ "You managed to buy back all " + stocksToBuy + " stocks for an average price of $" + Math.round(totalPrice / stocksToBuy) + ", lower than you had originally sold them for ($" + soldPrice + ").",
-          "This means that not even the short squeeze could you prevent you from making at least a small profit, in this case $" + Math.round((stocksToBuy * soldPrice) - totalPrice) + ".",
+        [ "You managed to buy back all " + stocksToBuy + " stocks for an average price of $" + Math.round(totalPrice / stocksToBuy) + ", lower than you originally sold them for ($" + soldPrice + ").",
+          "This means that not even the short squeeze could prevent you from making a profit, in this case $" + Math.round((stocksToBuy * soldPrice) - totalPrice) + ".",
           "Good work! You're a role model to us all."
         ],
         false
