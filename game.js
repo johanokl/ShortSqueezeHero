@@ -112,7 +112,7 @@ window.onload = function () {
   }
 
   document.onkeydown = function (event) {
-    if (waitforkeyup || !startgamebutton || !event || event.keyCode !== 32) {
+    if (waitforkeyup || !startgamebutton || !event || event.keyCode !== 32) {
       return true;
     }
     waitforkeyup = true;
@@ -128,7 +128,7 @@ window.onload = function () {
   };
 
   document.onkeyup = function (event) {
-    if (!event || event.keyCode !== 32) {
+    if (!event || event.keyCode !== 32) {
       return true;
     }
     waitforkeyup = false;
@@ -166,12 +166,12 @@ window.onload = function () {
 
   function startGame() {
     document.getElementById("gamescreen").style.display = "block";
-    savingsStart = readParameter("savingsStart") ? parseInt(readParameter("savingsStart"), 10) : savingsStart;
-    increaseRate = readParameter("increaseRate") ? (parseInt(readParameter("increaseRate"), 10) / 100) : increaseRate;
-    startPrice = readParameter("startPrice") ? parseInt(readParameter("startPrice"), 10) : startPrice;
-    soldPrice = readParameter("soldPrice") ? parseInt(readParameter("soldPrice"), 10) : soldPrice;
-    lowestPrice = readParameter("lowestPrice") ? parseInt(readParameter("lowestPrice"), 10) : lowestPrice;
-    stocksToBuy = readParameter("stocksToBuy") ? parseInt(readParameter("stocksToBuy"), 10) : stocksToBuy;
+    savingsStart = readParameter("savingsStart") ? parseInt(readParameter("savingsStart"), 10) : savingsStart;
+    increaseRate = readParameter("increaseRate") ? (parseInt(readParameter("increaseRate"), 10) / 100) : increaseRate;
+    startPrice = readParameter("startPrice") ? parseInt(readParameter("startPrice"), 10) : startPrice;
+    soldPrice = readParameter("soldPrice") ? parseInt(readParameter("soldPrice"), 10) : soldPrice;
+    lowestPrice = readParameter("lowestPrice") ? parseInt(readParameter("lowestPrice"), 10) : lowestPrice;
+    stocksToBuy = readParameter("stocksToBuy") ? parseInt(readParameter("stocksToBuy"), 10) : stocksToBuy;
     stocksLeft = stocksToBuy;
     startTime = new Date().getTime();
     buybutton.setVisible(true);
@@ -188,7 +188,7 @@ window.onload = function () {
     if (readParameter("highscore") === "clear") {
       document.cookie = "shortSqueezeHeroHighScore=0";
     } else {
-      highScore = document.cookie.replace(/(?:(?:^|.*;\s*)shortSqueezeHeroHighScore\s*\=\s*([^;]*).*$)|^.*$/, "$1") || highScore;
+      highScore = document.cookie.replace(/(?:(?:^|.*;\s*)shortSqueezeHeroHighScore\s*\=\s*([^;]*).*$)|^.*$/, "$1") || highScore;
     }
     titleScreen();
   }());
