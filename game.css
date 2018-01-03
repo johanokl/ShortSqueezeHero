@@ -25,11 +25,13 @@ body {
   text-align: center;
   font-size: 0.8em;
 }
+
 #footer a {
   text-decoration: none;
   color: grey;
   padding: 4px;
 }
+
 #footer a:hover {
   color: white;
   background: black;
@@ -45,9 +47,11 @@ body {
   white-space: nowrap;
   visibility: hidden;
 }
+
 .frontpageText.intro {
   visibility: visible;
 }
+
 .frontpageText.outro {
   visibility: visible;
 }
@@ -58,9 +62,11 @@ body {
   font-size: 2em;
   font-weight: bold;
 }
+
 #maintitle.intro {
   left: 1em;
 }
+
 #maintitle.outro {
   left: -12em;
 }
@@ -75,9 +81,11 @@ body {
   width: 15.5em;
   text-align: center;
 }
+
 #highscore.intro {
   left: 0em;
 }
+
 #highscore.outro {
   left: -15em;
 }
@@ -87,9 +95,11 @@ body {
   top: 7em;
   font-size: 1.5em;
 }
+
 #creator.intro {
   left: 4em;
 }
+
 #creator.outro {
   left: -12em;
 }
@@ -101,9 +111,11 @@ body {
   font-size: 1.5em;
   cursor: pointer;
 }
+
 #startgamebutton.intro {
   left: 5em;
 }
+
 #startgamebutton.outro {
   left: -12em;
 }
@@ -120,9 +132,11 @@ body {
   background: white;
   transition: background 1.5s;
 }
+
 #introbackground.intro {
   background: black;
 }
+
 #introbackground.outro {
   background: white;
 }
@@ -134,9 +148,11 @@ body {
   visibility: hidden;
   transition: left 5s linear;
 }
+
 #graph.intro {
   visibility: visible;
 }
+
 #graph.movetorebound {
   visibility: visible;
   left: -27em;
@@ -149,9 +165,11 @@ body {
   width: 100%;
   background: white;
 }
+
 #graphhider.intro {
   left: 0em;
 }
+
 #graphhider.moveout {
   left: 20em;
 }
@@ -164,12 +182,15 @@ body {
   display: block;
   transition: opacity 0.2s;
 }
+
 #alertsplash.intro {
   opacity: 1;
 }
+
 #alertsplash.outro {
   opacity: 0;
 }
+
 #alertsplash.hidden {
   display: none;
   opacity: 0;
@@ -187,10 +208,12 @@ body {
   top: 1.5em;
   position: absolute;
 }
+
 #infoscreen.display {
   transition: left 0.25s;
   left: 2em;
 }
+
 #infoscreen.hide {
   transition: left 0.3s;
   left: -25em;
@@ -217,6 +240,10 @@ body {
   overflow: hidden;
   line-height: 1.15em;
   font-size: 1em;
+}
+
+#infoscreencontent.noheader {
+  top: 2em;
 }
 
 #infoscreenbutton,

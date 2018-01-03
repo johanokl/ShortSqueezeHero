@@ -86,6 +86,7 @@ function displayInfoscreen(header, content, callback) {
   }
   document.getElementById("infoscreenbutton").className = (callback ? "visible" : "hidden");
   infoscreenheader.innerHTML = header;
+  infoscreencontent.className = header ? "" : "noheader";
   infoscreencontent.innerHTML = content.join("<br><br>");
   infoscreen.setVisible(true);
   infoscreen.setState("display");
@@ -116,4 +117,3 @@ function alertSplash(flashes) {
     0.4 * 1000
   );
 }
-
