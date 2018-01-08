@@ -46,6 +46,7 @@ body {
   border-radius: 1em;
   white-space: nowrap;
   visibility: hidden;
+  text-align: center;
 }
 
 .frontpageText.intro {
@@ -75,7 +76,7 @@ body {
   border: none;
   background: none;
   left: 100em;
-  top: 11em;
+  top: 12em;
   font-size: 1.5em;
   line-height: 1.3em;
   width: 15.5em;
@@ -92,7 +93,7 @@ body {
 
 #creator {
   left: 100em;
-  top: 7em;
+  top: 8em;
   font-size: 1.5em;
 }
 

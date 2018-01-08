@@ -22,7 +22,7 @@ window.onload = function () {
     soldPrice = 325,
     waitforkeyup = false,
     lowestPrice = 75,
-    stocksToBuy = 50;
+    stocksToBuy = 60;
 
   function readParameter(str) {
     return (location.search.split(str + '=')[1]||'').split('&')[0];
@@ -34,7 +34,7 @@ window.onload = function () {
   }
 
   function displayCurrentPrice() {
-    stockprice.setContent("NYSE:BMO: <br>$" + Math.round(getCurrentPrice()));
+    stockprice.setContent("BIT:TAMA:<br>&euro;" + Math.round(getCurrentPrice()));
   }
 
   function updateGameStatus() {
@@ -45,11 +45,11 @@ window.onload = function () {
       savingsLeft = 0;
     }
     gamestatus.setContent(
-      "Current result from bet: " + ((currentEarnings < 0) ? "-$" : "$") + Math.abs(currentEarnings) + "<br>" +
-      "Savings left: $" + savingsLeft + "<br>" +
+      "Current result from bet: " + ((currentEarnings < 0) ? "-&euro;" : "&euro;") + Math.abs(currentEarnings) + "<br>" +
+      "Savings left: &euro;" + savingsLeft + "<br>" +
       "Stocks needed: " + stocksToBuy + "<br>" +
       "Stocks bought: " + (stocksToBuy - stocksLeft) + "<br>" +
-      "Total cost: $" + Math.round(totalPrice)
+      "Total cost: &euro;" + Math.round(totalPrice)
     );
   }
 
@@ -65,17 +65,18 @@ window.onload = function () {
       displayInfoscreen(
         "Oh no!",
         [ "You didn't manage to buy the " + stocksToBuy + " stocks in time. ",
-          "The stock price has risen so much that your savings at hand can't pay for it, " +
-          "meaning that you'll have to sell your precious Porche to pay for it all.",
-          "Hopefully you've learned your lesson and in the future will place your hard earnings in the only asset form that can't ever depricate in value, the Swedish property market."
+          "The stock price has risen so much that your savings at hand can't pay for it. " +
+          "To cover it you'll to sell your precious Porsche.",
+          "Use the money you've left to buy a nice bike while thinking about the risks involved in shorting the stock market."
         ],
         false
       );
-    } else if (currentEarnings > 0) {
+    } else if (currentEarnings >= 0) {
       displayInfoscreen(
         "Short Squeeze Hero!",
-        [ "You managed to buy back all " + stocksToBuy + " stocks for an average price of $" + Math.round(totalPrice / stocksToBuy) + ", lower than you originally sold them for ($" + soldPrice + ").",
-          "This means that not even the short squeeze could prevent you from making a profit, in this case $" + Math.round((stocksToBuy * soldPrice) - totalPrice) + ".",
+        [ "You managed to buy back all " + stocksToBuy + " stocks for an average price of &euro;" +
+          (Math.round(totalPrice * 100 / stocksToBuy) / 100) + ", lower than you originally sold them for (&euro;" + soldPrice + ").",
+          "This means that not even the short squeeze could prevent you from making a profit, this time &euro;" + Math.round((stocksToBuy * soldPrice) - totalPrice) + ".",
           "Good work! You're a role model to us all."
         ],
         false
@@ -84,9 +85,10 @@ window.onload = function () {
       displayInfoscreen(
         "Well done!",
         [ "You managed to buy all " + stocksToBuy + " stocks that you needed.",
-          "Unfortunately the total cost for them all was $" + Math.round(totalPrice) + ", " +
-          " a bit more than you had orginally sold them for ($" + (stocksToBuy * soldPrice) + "), meaning that you made a net loss for this bet. At least you still have you car.",
-          "Hopefully you've learned your lesson and in the future will place your hard earnings in the only asset form that can't ever depricate in value, the Swedish property market."
+          "Unfortunately the total cost for them all was &euro;" + Math.round(totalPrice) + ", " +
+          " a bit more than you had orginally sold them for (&euro;" + (stocksToBuy * soldPrice) +
+          "). While you lost &euro;" + Math.round(totalPrice - stocksToBuy * soldPrice) +
+          " on this bet at least you'll still get to keep your car."
         ],
         false
       );

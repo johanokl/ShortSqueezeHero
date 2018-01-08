@@ -1,13 +1,13 @@
 # Short Squeeze Hero
 
 ### Introduction
-Stupid joke made into a Javascript game.
+Joke turned into a Javascript game.
 
 ### Background
 Read more about the term short squeeze at Investopedia, http://www.investopedia.com/terms/s/shortsqueeze.asp.
 
 ### Play it!
-A working version is available at https://htmlpreview.github.io/?https://raw.githubusercontent.com/johanokl/ShortSqueezeHero/master/index.htm.  
+A working version is available at http://johanokl.github.io/ShortSqueezeHero.
 Best played on a PC.
 
 ### Technical Details
