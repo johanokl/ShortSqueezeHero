@@ -208,6 +208,7 @@ body {
   height: 27em;
   top: 1.5em;
   position: absolute;
+  touch-action: none;
 }
 
 #infoscreen.display {
@@ -268,6 +269,10 @@ body {
   width: 12em;
   left: 6em;
   top: 26em;
+}
+
+#gamescreen {
+  touch-action: none;
 }
 
 #buybutton {
