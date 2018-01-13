@@ -53,6 +53,14 @@ window.onload = function () {
     );
   }
 
+  function highScoreNotice(newScore, highScore) {
+    if (highScore == Number.MAX_SAFE_INTEGER || newScore >= highScore) {
+      return "";
+    }
+    return "As it's current year your new high score of " + Math.round(newScore) +
+      " has been added to a blockchain.";
+  }
+
   function gameFinished() {
     clearInterval(currentPriceTimer);
     clearInterval(gameStatusTimer);
@@ -66,7 +74,7 @@ window.onload = function () {
         "Oh no!",
         [ "You didn't manage to buy the " + stocksToBuy + " stocks in time. ",
           "The stock price has risen so much that your savings at hand can't pay for it. " +
-          "To cover it you'll to sell your precious Porsche.",
+          "To cover it you'll have to sell your precious Porsche.",
           "Use the money you've left to buy a nice bike while thinking about the risks involved in shorting the stock market."
         ],
         false
@@ -77,7 +85,8 @@ window.onload = function () {
         [ "You managed to buy back all " + stocksToBuy + " stocks for an average price of &euro;" +
           (Math.round(totalPrice * 100 / stocksToBuy) / 100) + ", lower than you originally sold them for (&euro;" + soldPrice + ").",
           "This means that not even the short squeeze could prevent you from making a profit, this time &euro;" + Math.round((stocksToBuy * soldPrice) - totalPrice) + ".",
-          "Good work! You're a role model to us all."
+          "Good work! You're a role model to us all.",
+          highScoreNotice(totalPrice, highScore)
         ],
         false
       );
@@ -88,7 +97,8 @@ window.onload = function () {
           "Unfortunately the total cost for them all was &euro;" + Math.round(totalPrice) + ", " +
           " a bit more than you had orginally sold them for (&euro;" + (stocksToBuy * soldPrice) +
           "). While you lost &euro;" + Math.round(totalPrice - stocksToBuy * soldPrice) +
-          " on this bet at least you'll still get to keep your car."
+          " on this bet at least you'll still get to keep your car.",
+          highScoreNotice(totalPrice, highScore)
         ],
         false
       );
