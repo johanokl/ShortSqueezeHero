@@ -6,7 +6,7 @@ window.onload = function () {
   var startTime,
     currentPriceTimer,
     gameStatusTimer,
-    highScore = Number.MAX_SAFE_INTEGER,
+    lowScore = Number.MAX_SAFE_INTEGER,
     buybutton = new GraphicsElement("buybutton"),
     gamestatus = new GraphicsElement("gamestatus"),
     stockprice = new GraphicsElement("stockprice"),
@@ -53,11 +53,11 @@ window.onload = function () {
     );
   }
 
-  function highScoreNotice(newScore, highScore) {
-    if (highScore == Number.MAX_SAFE_INTEGER || newScore >= highScore) {
+  function lowScoreNotice(newScore) {
+    if (lowScore == Number.MAX_SAFE_INTEGER || newScore >= lowScore) {
       return "";
     }
-    return "As it's current year your new high score of " + Math.round(newScore) +
+    return "As it's current year your new low score of " + Math.round(newScore) +
       " has been added to a blockchain.";
   }
 
@@ -65,8 +65,8 @@ window.onload = function () {
     clearInterval(currentPriceTimer);
     clearInterval(gameStatusTimer);
     buybutton.setVisible(false);
-    if ((savingsLeft >= 0) && (highScore > totalPrice)) {
-      document.cookie = "shortSqueezeHeroHighScore=" + Math.round(totalPrice);
+    if ((savingsLeft >= 0) && (totalPrice < lowScore)) {
+      document.cookie = "shortSqueezeHeroLowScore=" + Math.round(totalPrice);
     }
     alertSplash();
     if (savingsLeft < 0) {
@@ -86,7 +86,7 @@ window.onload = function () {
           (Math.round(totalPrice * 100 / stocksToBuy) / 100) + ", lower than you originally sold them for (&euro;" + soldPrice + ").",
           "This means that not even the short squeeze could prevent you from making a profit, this time &euro;" + Math.round((stocksToBuy * soldPrice) - totalPrice) + ".",
           "Good work! You're a role model to us all.",
-          highScoreNotice(totalPrice, highScore)
+          lowScoreNotice(totalPrice)
         ],
         false
       );
@@ -98,7 +98,7 @@ window.onload = function () {
           " a bit more than you had orginally sold them for (&euro;" + (stocksToBuy * soldPrice) +
           "). While you lost &euro;" + Math.round(totalPrice - stocksToBuy * soldPrice) +
           " on this bet at least you'll still get to keep your car.",
-          highScoreNotice(totalPrice, highScore)
+          lowScoreNotice(totalPrice)
         ],
         false
       );
@@ -151,21 +151,21 @@ window.onload = function () {
     var introbackground = new GraphicsElement("introbackground", undefined, true, "intro"),
       maintitle = new GraphicsElement("maintitle", "frontpageText", true, "intro"),
       creator = new GraphicsElement("creator", "frontpageText", true, "intro"),
-      highscorelabel = new GraphicsElement("highscore", "frontpageText", true, "intro");
-    if (highScore < Number.MAX_SAFE_INTEGER) {
-      highscorelabel.setContent("High score:<br>" + Math.round(highScore));
+      lowscorelabel = new GraphicsElement("lowscore", "frontpageText", true, "intro");
+    if (lowScore < Number.MAX_SAFE_INTEGER) {
+      lowscorelabel.setContent("Low score:<br>" + Math.round(lowScore));
     }
     document.getElementById("startgamebutton").onclick = function () {
       introbackground.setState("outro");
       maintitle.setState("outro");
       creator.setState("outro");
-      highscorelabel.setState("outro");
+      lowscorelabel.setState("outro");
       startgamebutton.setState("outro");
       setTimeout(function () {
         introbackground.setVisible(false);
         maintitle.setVisible(false);
         creator.setVisible(false);
-        highscorelabel.setVisible(false);
+        lowscorelabel.setVisible(false);
         startgamebutton.setVisible(false);
         if (readParameter("start") === "game") {
           startGame();
@@ -197,12 +197,11 @@ window.onload = function () {
   }
 
   (function init() {
-    if (readParameter("highscore") === "clear") {
-      document.cookie = "shortSqueezeHeroHighScore=0";
+    if (readParameter("lowscore") === "clear") {
+      document.cookie = "shortSqueezeHeroLowScore=0";
     } else {
-      highScore = document.cookie.replace(/(?:(?:^|.*;\s*)shortSqueezeHeroHighScore\s*\=\s*([^;]*).*$)|^.*$/, "$1") || highScore;
+      lowScore = document.cookie.replace(/(?:(?:^|.*;\s*)shortSqueezeHeroLowScore\s*\=\s*([^;]*).*$)|^.*$/, "$1") || lowScore;
     }
     titleScreen();
   }());
-
 };

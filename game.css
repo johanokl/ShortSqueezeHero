@@ -72,7 +72,7 @@ body {
   left: -12em;
 }
 
-#highscore {
+#lowscore {
   border: none;
   background: none;
   left: 100em;
@@ -83,11 +83,11 @@ body {
   text-align: center;
 }
 
-#highscore.intro {
+#lowscore.intro {
   left: 0em;
 }
 
-#highscore.outro {
+#lowscore.outro {
   left: -15em;
 }
 
