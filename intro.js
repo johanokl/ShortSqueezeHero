@@ -33,10 +33,10 @@ var intro = (function () {
       displayInfoscreen(
         "",
         [ "The future's looking grim for Italy's Tamagucci S.p.A.",
-        "Twenty years after their electronic egg toy took the world by storm they have yet to repeat the success. " +
+        "Twenty years after their electronic egg toy took the world by storm, they have yet to repeat the success. " +
         "The company's spent the past five years and almost all the money they made 20 years " +
-        "ago on trying to develop an advanced AI driven toy that's advanced enough to impress 2018's kids. " +
-        "However the new toy has been hit by numerous delays and it's release date is uncertain.",
+        "ago on trying to develop an advanced AI-driven toy that's advanced enough to impress today's kids. " +
+        "However the new toy has been hit by numerous delays, and its release date is uncertain.",
         "Based on this pessimistic forcecast you decide to make a daring bet and short the company's stock (BIT:TAMA)."
         ],
         nextState
@@ -62,8 +62,8 @@ var intro = (function () {
     function () {
       displayInfoscreen(
         "Congratulations!",
-        [ "Tamagucci S.p.A. has finally launched their new electronic egg toy and it looks like you made a wise decision. ",
-        "While the toy can talk it seems the developers used Twitter as its data source. " +
+        [ "Tamagucci S.p.A. has finally launched their new electronic egg toy, and it looks like you made a wise decision. ",
+        "While the toy can talk, it seems the developers used Twitter as its data source. " +
         "The tabloids are filled with articles about parents complaining that the eggs are calling their kids racial slurs. " +
         "It's unlikely that the toy will be Christmas Present of the Year.",
         "The stock has continued to plunge and is now down to &euro;" + lowestPrice +
@@ -104,14 +104,14 @@ var intro = (function () {
 
     function () {
       displayInfoscreen(
-        "We have a Short Squeeze!",
-        [ "You're not the only one who want to get away from their shorted positions, " +
-          "and the lucky fellows with the stock aren't really eager to sell it.",
+        "It's a Short Squeeze!",
+        [ "You're not the only one who wants to get away from their shorted positions, " +
+          "and the lucky fellows with the stock aren't eager to sell it.",
           "You have to close your shorted position as soon as possible, or else the " +
           "price might have risen so much that paying for the stocks you're short will " +
           "force you to sell your precious Porsche. It's no longer just about " +
-          "securing your profit, now it's about your car.",
-          "You can still make it, but for that you have to fight hard. Smash the " +
+          "securing your profit; now it's about your car.",
+          "You can still make it, but for that, you'll have to fight hard. Smash the " +
           "buy button the fastest it has ever been smashed."
         ],
         nextState
